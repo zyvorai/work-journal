@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>How Work Journal works · Work Journal</title>
+<meta name="description" content="What Work Journal records, how it ends a session when you step away, how files are tracked, stored and summarized.">
+
+<link rel="canonical" href="https://zyvorai.github.io/work-journal/docs/how-it-works/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zyvor Work Journal">
+<meta property="og:title" content="How Work Journal works · Work Journal">
+<meta property="og:description" content="What Work Journal records, how it ends a session when you step away, how files are tracked, stored and summarized.">
+<meta property="og:url" content="https://zyvorai.github.io/work-journal/docs/how-it-works/">
+<meta property="og:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Work Journal works · Work Journal">
+<meta name="twitter:description" content="What Work Journal records, how it ends a session when you step away, how files are tracked, stored and summarized.">
+<meta name="twitter:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta name="twitter:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<link rel="stylesheet" href="../../assets/docs.css">
+<style>:root{--accent-btn:#0f766e;--accent-ink:#0f766e;--accent-grad-a:#14b8a6;--accent-grad-b:#99f6e4}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent-ink:#2dd4bf}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../../" aria-label="Zyvor Work Journal home"><img src="../../favicon.svg" width="26" height="26" alt=""><span>Work Journal</span></a>
+  <nav aria-label="Primary"><ul><li><a href="../../">Work Journal</a></li><li><a href="../../docs/">Docs</a></li></ul></nav>
+  <a class="btn small primary" href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Download</a>
+</header>
+<main id="main" class="page">
+  <article class="prose">
+    <h1>How Work Journal works</h1>
+    <p class="lede">A small event log, an encrypted day file, and a few honest calculations on top.</p>
+    <h2 id="what-it-records">What it records</h2>
+<ul><li><strong>Which app is in front, and when.</strong> Work Journal listens for the system's frontmost-application notifications (<code>NSWorkspace</code>). It stores the app's name and bundle id and the time. It does not read window titles, URLs, documents or the screen.</li><li><strong>File activity in folders you choose.</strong> It watches those folders with <code>FSEvents</code> and stores the path and the kind of change (created, modified, removed, renamed). It never opens or reads the files.</li><li><strong>Pause, sleep and lock markers</strong>, so that time away is not counted as work.</li></ul>
+<h2 id="time-away">Time away</h2>
+<p>An app session ends when the Mac sleeps, the screen sleeps or locks, the screen saver starts, you switch user, you pause recording, or you have been idle for 5 minutes. For idle, the session is closed at the moment you stopped, not five minutes later. It resumes when you return.</p>
+<h2 id="files">Files</h2>
+<ul><li>Folders are chosen with the macOS folder picker. The sandbox keeps a security-scoped bookmark so access survives relaunch.</li><li>Noise is ignored: <code>.git</code>, <code>node_modules</code>, <code>.build</code>, <code>DerivedData</code>, <code>.swiftpm</code>, <code>__pycache__</code>, <code>.Trash</code>, <code>.DS_Store</code>, editor swap and temp files.</li><li>A file touched many times in a day counts once in the day's list; the summary shows how many distinct files changed in each folder.</li></ul>
+<h2 id="storage">Storage</h2>
+<ul><li>One file per day, named <code>YYYY-MM-DD.wjday</code>, in the app's sandbox container. Folder mode 0700, file mode 0600.</li><li>Each file is a short magic header followed by an AES-256-GCM sealed JSON list of that day's events. The date is bound in as authenticated data, so a day file cannot be swapped for another day's.</li><li>The 256-bit key is generated on your Mac and kept only in the Keychain (generic password, this device only, when unlocked). There is no key file anywhere. If the Keychain refuses, Work Journal keeps today in memory only, writes nothing to disk and says so in the window and the menu.</li><li>Events are written about every 30 seconds and when you quit.</li><li>Days older than your retention setting (30 days, 90 days (default), 1 year or forever) are deleted when the app starts.</li></ul>
+<h2 id="from-events-to-a-day">From events to a day</h2>
+<p>The Journal window turns the events into sessions per app (adjacent sessions of the same app are merged), time per app, a timeline (sessions shorter than a minute are left out of the timeline, not out of the totals), and the files touched per folder.</p>
+<h2 id="summaries">Summaries</h2>
+<ul><li>By default the summary is a <strong>template</strong> computed on your Mac from those numbers. The window labels it as such.</li><li>If your Mac has Apple's on-device model (the Foundation Models framework) and the setting is on, <strong>Summarize on-device</strong> (Shift-Command-S) asks it to rewrite the same facts in plain sentences. The prompt tells it to use only the facts given. The window then says the text was written by Apple's on-device model. If the model is unavailable or fails, you keep the template.</li><li>Nothing is sent to a server in either case; Work Journal has no network entitlement.</li></ul>
+<h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+<table><thead><tr><th>Shortcut</th><th>Action</th></tr></thead><tbody><tr><td>Command-[ and Command-]</td><td>Previous and next day</td></tr><tr><td>Command-T</td><td>Jump to today</td></tr><tr><td>Command-E</td><td>Export this day as Markdown</td></tr><tr><td>Shift-Command-E</td><td>Export the last 7 days as Markdown</td></tr><tr><td>Shift-Command-S</td><td>Summarize on-device (when available)</td></tr><tr><td>Command-comma</td><td>Settings</td></tr></tbody></table>
+  </article>
+</main>
+<footer class="footer">
+  <p><strong>Zyvor Work Journal</strong> · The Work Journal source code is private.</p>
+  <p class="links"><a href="../../docs/">Docs</a><a href="https://github.com/zyvorai/work-journal/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Release</a><a href="https://github.com/zyvorai/work-journal">GitHub</a><a href="https://github.com/zyvorai/work-journal/blob/main/LICENSE">LICENSE</a><a href="https://github.com/zyvorai/work-journal/blob/main/SECURITY.md">SECURITY</a><a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a></p>
+  <p>© 2026 Zyvor AI Labs Private Limited · <a href="https://zyvor.dev">zyvor.dev</a> · Zyvor Production License v1.0</p>
+</footer>
+</body>
+</html>
