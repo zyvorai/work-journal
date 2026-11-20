@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>Exports · Work Journal</title>
+<meta name="description" content="Markdown standup notes, timesheet CSV and files CSV: formats, ranges and spreadsheet safety.">
+
+<link rel="canonical" href="https://zyvorai.github.io/work-journal/docs/exports/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zyvor Work Journal">
+<meta property="og:title" content="Exports · Work Journal">
+<meta property="og:description" content="Markdown standup notes, timesheet CSV and files CSV: formats, ranges and spreadsheet safety.">
+<meta property="og:url" content="https://zyvorai.github.io/work-journal/docs/exports/">
+<meta property="og:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exports · Work Journal">
+<meta name="twitter:description" content="Markdown standup notes, timesheet CSV and files CSV: formats, ranges and spreadsheet safety.">
+<meta name="twitter:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta name="twitter:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<link rel="stylesheet" href="../../assets/docs.css">
+<style>:root{--accent-btn:#0f766e;--accent-ink:#0f766e;--accent-grad-a:#14b8a6;--accent-grad-b:#99f6e4}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent-ink:#2dd4bf}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../../" aria-label="Zyvor Work Journal home"><img src="../../favicon.svg" width="26" height="26" alt=""><span>Work Journal</span></a>
+  <nav aria-label="Primary"><ul><li><a href="../../">Work Journal</a></li><li><a href="../../docs/">Docs</a></li></ul></nav>
+  <a class="btn small primary" href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Download</a>
+</header>
+<main id="main" class="page">
+  <article class="prose">
+    <h1>Exports</h1>
+    <p class="lede">Three plain-text exports, from the toolbar&#x27;s Export menu.</p>
+    <p>Choose a day in the Journal window, then <strong>Export</strong> in the toolbar. A save panel asks where to write the file.</p>
+<table><thead><tr><th>Export</th><th>Range</th><th>File</th></tr></thead><tbody><tr><td>Markdown (standup)</td><td>this day, or the last 7 days ending on it</td><td><code>work-journal-YYYY-MM-DD.md</code></td></tr><tr><td>Timesheet CSV</td><td>this day, or the last 7 days</td><td><code>timesheet-YYYY-MM-DD.csv</code></td></tr><tr><td>Files CSV</td><td>last 7 days</td><td><code>files-YYYY-MM-DD.csv</code></td></tr></tbody></table>
+<h2 id="markdown">Markdown</h2>
+<p>One section per day: the summary, a <strong>Time by app</strong> table, <strong>Files touched</strong> (up to 10 names per folder, then a count) and a <strong>Timeline</strong> of sessions of a minute or more. If you used Summarize on-device for a day in this session, that text is used; otherwise the template summary.</p>
+<h2 id="timesheet-csv">Timesheet CSV</h2>
+<p>One row per app session. Columns and an example row (invented sample data):</p>
+<pre><code>date,start,end,minutes,app,bundle_id
+2026-11-20,09:14,10:41,87.0,Xcode,com.apple.dt.Xcode</code></pre>
+<h2 id="files-csv">Files CSV</h2>
+<p>One row per distinct file touched per day (invented sample data):</p>
+<pre><code>date,folder,file,path
+2026-11-20,app-prototype,Package.swift,/Users/sample/Projects/app-prototype/Package.swift</code></pre>
+<h2 id="spreadsheet-safety">Spreadsheet safety</h2>
+<p>CSV follows RFC 4180 quoting. A text field that starts with <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>, a tab or a carriage return gets a leading apostrophe so a spreadsheet will not run it as a formula.</p>
+  </article>
+</main>
+<footer class="footer">
+  <p><strong>Zyvor Work Journal</strong> · The Work Journal source code is private.</p>
+  <p class="links"><a href="../../docs/">Docs</a><a href="https://github.com/zyvorai/work-journal/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Release</a><a href="https://github.com/zyvorai/work-journal">GitHub</a><a href="https://github.com/zyvorai/work-journal/blob/main/LICENSE">LICENSE</a><a href="https://github.com/zyvorai/work-journal/blob/main/SECURITY.md">SECURITY</a><a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a></p>
+  <p>© 2026 Zyvor AI Labs Private Limited · <a href="https://zyvor.dev">zyvor.dev</a> · Zyvor Production License v1.0</p>
+</footer>
+</body>
+</html>

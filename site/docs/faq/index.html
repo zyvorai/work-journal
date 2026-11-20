@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>Frequently asked questions · Work Journal</title>
+<meta name="description" content="Answers about what Work Journal records, network access, summaries, exports, trial and licence, and requirements.">
+
+<link rel="canonical" href="https://zyvorai.github.io/work-journal/docs/faq/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zyvor Work Journal">
+<meta property="og:title" content="Frequently asked questions · Work Journal">
+<meta property="og:description" content="Answers about what Work Journal records, network access, summaries, exports, trial and licence, and requirements.">
+<meta property="og:url" content="https://zyvorai.github.io/work-journal/docs/faq/">
+<meta property="og:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frequently asked questions · Work Journal">
+<meta name="twitter:description" content="Answers about what Work Journal records, network access, summaries, exports, trial and licence, and requirements.">
+<meta name="twitter:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta name="twitter:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<link rel="stylesheet" href="../../assets/docs.css">
+<style>:root{--accent-btn:#0f766e;--accent-ink:#0f766e;--accent-grad-a:#14b8a6;--accent-grad-b:#99f6e4}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent-ink:#2dd4bf}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../../" aria-label="Zyvor Work Journal home"><img src="../../favicon.svg" width="26" height="26" alt=""><span>Work Journal</span></a>
+  <nav aria-label="Primary"><ul><li><a href="../../">Work Journal</a></li><li><a href="../../docs/">Docs</a></li></ul></nav>
+  <a class="btn small primary" href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Download</a>
+</header>
+<main id="main" class="page">
+  <article class="prose">
+    <h1>Frequently asked questions</h1>
+    <p class="lede">Short answers, with links to the detail.</p>
+    <h2 id="does-work-journal-send-anything-over-the-network">Does Work Journal send anything over the network?</h2>
+<p>No. It is sandboxed and ships without the network entitlement, so it cannot connect. Check it yourself: see <a href="../privacy/">Privacy</a>.</p>
+<h2 id="does-it-record-my-screen-or-what-i-type">Does it record my screen or what I type?</h2>
+<p>No. It records which app is in front and when, plus file names and paths in folders you choose. No screen recording, no window titles, no keystrokes, no file contents.</p>
+<h2 id="where-is-my-data-and-can-i-delete-it">Where is my data, and can I delete it?</h2>
+<p>In encrypted day files inside the app's sandbox container, with the key in your Keychain. <strong>Settings &gt; Data &gt; Delete All Journal Data…</strong> removes every day. You can also choose how long days are kept.</p>
+<h2 id="does-the-summary-use-ai">Does the summary use AI?</h2>
+<p>Only if you click <strong>Summarize on-device</strong> and your Mac has Apple's on-device Foundation Models available. Otherwise you get a template summary computed from your numbers. The window always says which one you are reading.</p>
+<h2 id="why-is-the-time-lower-than-i-expected">Why is the time lower than I expected?</h2>
+<p>Time away is not counted: sleep, lock, screen saver and 5 idle minutes end the session. Work Journal's own window is not counted either.</p>
+<h2 id="does-it-work-with-several-displays-spaces-or-full-screen-apps">Does it work with several displays, Spaces or full-screen apps?</h2>
+<p>It follows the frontmost application, so yes in principle. We have not tested those setups in this release.</p>
+<h2 id="is-there-a-trial">Is there a trial?</h2>
+<p>Free 30-day trial key: <a href="mailto:sales@zyvor.dev?subject=Work%20Journal%20trial%20key">sales@zyvor.dev</a>. Price: INR 2,999 per Mac per year incl. 18% GST in India (about US$30 excl. tax outside India). Teams of 5 or more Macs: INR 2,549 per Mac per year (about US$26 excl. tax), minimum 5 Macs (INR 12,745, about US$129), by invoice. Paid licences: contact <a href="mailto:sales@zyvor.dev?subject=Work%20Journal%20licence">sales@zyvor.dev</a>. Without a key everything still works.</p>
+<h2 id="what-happens-when-the-trial-ends">What happens when the trial ends?</h2>
+<p>The status line says the licence has expired. Nothing is disabled.</p>
+<h2 id="which-macos">Which macOS?</h2>
+<p>macOS 27 or later.</p>
+<h2 id="are-the-screenshots-real">Are the screenshots real?</h2>
+<p>They are the real app windows rendered with invented sample data, not captures of anyone's journal. Every caption says so.</p>
+<h2 id="can-i-see-the-source">Can I see the source?</h2>
+<p>No. The Work Journal source code is private; this repository holds the documentation, website and downloads.</p>
+  </article>
+</main>
+<footer class="footer">
+  <p><strong>Zyvor Work Journal</strong> · The Work Journal source code is private.</p>
+  <p class="links"><a href="../../docs/">Docs</a><a href="https://github.com/zyvorai/work-journal/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Release</a><a href="https://github.com/zyvorai/work-journal">GitHub</a><a href="https://github.com/zyvorai/work-journal/blob/main/LICENSE">LICENSE</a><a href="https://github.com/zyvorai/work-journal/blob/main/SECURITY.md">SECURITY</a><a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a></p>
+  <p>© 2026 Zyvor AI Labs Private Limited · <a href="https://zyvor.dev">zyvor.dev</a> · Zyvor Production License v1.0</p>
+</footer>
+</body>
+</html>

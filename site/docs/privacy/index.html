@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>Privacy and verification · Work Journal</title>
+<meta name="description" content="What Work Journal records and never records, how the journal is encrypted, and how to verify that the app has no network entitlement.">
+
+<link rel="canonical" href="https://zyvorai.github.io/work-journal/docs/privacy/">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zyvor Work Journal">
+<meta property="og:title" content="Privacy and verification · Work Journal">
+<meta property="og:description" content="What Work Journal records and never records, how the journal is encrypted, and how to verify that the app has no network entitlement.">
+<meta property="og:url" content="https://zyvorai.github.io/work-journal/docs/privacy/">
+<meta property="og:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy and verification · Work Journal">
+<meta name="twitter:description" content="What Work Journal records and never records, how the journal is encrypted, and how to verify that the app has no network entitlement.">
+<meta name="twitter:image" content="https://zyvorai.github.io/work-journal/social/og.png">
+<meta name="twitter:image:alt" content="Work Journal: a quiet log of your workday. The app window shows invented sample data.">
+<link rel="stylesheet" href="../../assets/docs.css">
+<style>:root{--accent-btn:#0f766e;--accent-ink:#0f766e;--accent-grad-a:#14b8a6;--accent-grad-b:#99f6e4}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent-ink:#2dd4bf}}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="../../" aria-label="Zyvor Work Journal home"><img src="../../favicon.svg" width="26" height="26" alt=""><span>Work Journal</span></a>
+  <nav aria-label="Primary"><ul><li><a href="../../">Work Journal</a></li><li><a href="../../docs/">Docs</a></li></ul></nav>
+  <a class="btn small primary" href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Download</a>
+</header>
+<main id="main" class="page">
+  <article class="prose">
+    <h1>Privacy and verification</h1>
+    <p class="lede">Everything stays on this Mac. You can check the claim that matters most in one command.</p>
+    <h2 id="never-recorded">Never recorded</h2>
+<ul><li>Screen contents: no screen recording, no screenshots.</li><li>Window titles, browser URLs or tab names.</li><li>Keystrokes or clipboard.</li><li>File contents. Only file names and paths inside the folders you choose.</li></ul>
+<h2 id="recorded">Recorded</h2>
+<ul><li>The name and bundle id of the frontmost app, with times.</li><li>File paths and the kind of change in your chosen folders. Paths can contain project or client names, so treat exports accordingly.</li><li>Pause, resume and away markers.</li></ul>
+<h2 id="verify-no-network-entitlement">Verify: no network entitlement</h2>
+<p>Work Journal is App Sandboxed and ships without <code>com.apple.security.network.client</code> and <code>com.apple.security.network.server</code>. With the sandbox on, the kernel blocks outbound and inbound network connections for the process. Run this on the installed app:</p>
+<pre><code>codesign -d --entitlements :- /Applications/WorkJournal.app</code></pre>
+<p>Output for the 0.1.1 release:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;https://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+  &lt;dict&gt;
+    &lt;key&gt;com.apple.security.app-sandbox&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;com.apple.security.files.bookmarks.app-scope&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;com.apple.security.files.user-selected.read-write&lt;/key&gt;
+    &lt;true/&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+<p>Three entitlements: the sandbox, access to folders you pick in the picker, and app-scoped bookmarks for them. No network, no camera, no microphone, no Apple Events, no screen recording.</p>
+<h2 id="verify-the-download-is-the-notarized-build">Verify: the download is the notarized build</h2>
+<pre><code>shasum -a 256 -c WorkJournal-0.1.1.dmg.sha256
+spctl -a -t open --context context:primary-signature -v WorkJournal-0.1.1.dmg
+codesign --verify --deep --strict --verbose=2 /Applications/WorkJournal.app</code></pre>
+<h2 id="encryption">Encryption</h2>
+<p>Day files are AES-256-GCM sealed with a random 256-bit key held only in your Keychain. See <a href="../how-it-works/#storage">How it works</a>. This protects the day files if they are copied without your Keychain. It does not protect against someone who is logged in as you with your Keychain unlocked.</p>
+<h2 id="exports">Exports</h2>
+<p>Exports are plain text. They are written only where you choose in the save panel, and are then your responsibility.</p>
+<h2 id="not-verified-by-us">Not verified by us</h2>
+<p>VoiceOver labels are provided in the Journal window but have not been tested with VoiceOver in this release. The privacy claims above are about this app; Apple's on-device model is Apple's framework.</p>
+  </article>
+</main>
+<footer class="footer">
+  <p><strong>Zyvor Work Journal</strong> · The Work Journal source code is private.</p>
+  <p class="links"><a href="../../docs/">Docs</a><a href="https://github.com/zyvorai/work-journal/blob/main/CHANGELOG.md">Changelog</a><a href="https://github.com/zyvorai/work-journal/releases/tag/v0.1.1">Release</a><a href="https://github.com/zyvorai/work-journal">GitHub</a><a href="https://github.com/zyvorai/work-journal/blob/main/LICENSE">LICENSE</a><a href="https://github.com/zyvorai/work-journal/blob/main/SECURITY.md">SECURITY</a><a href="mailto:sales@zyvor.dev">sales@zyvor.dev</a></p>
+  <p>© 2026 Zyvor AI Labs Private Limited · <a href="https://zyvor.dev">zyvor.dev</a> · Zyvor Production License v1.0</p>
+</footer>
+</body>
+</html>
