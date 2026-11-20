@@ -26,7 +26,7 @@ It follows the frontmost application, so yes in principle. We have not tested th
 
 ## Is there a trial?
 
-Free 30-day trial key: [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20trial%20key). Paid licences: contact [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20licence). Without a key everything still works.
+Free 30-day trial key: [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20trial%20key). Price: ₹2,999 per Mac per year including GST (about US$30). Teams of 5 or more Macs: ₹2,549 per Mac per year, by invoice. Paid licences: contact [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20licence). Without a key everything still works.
 
 ## What happens when the trial ends?
 

@@ -68,7 +68,7 @@ lists only `app-sandbox`, `files.user-selected.read-write` and `files.bookmarks.
 ## Trial and licence
 
 - **Free 30-day trial key: sales@zyvor.dev.** Without a key everything works and a status line says so. After a trial ends, nothing is disabled either.
-- **Paid licences:** contact sales@zyvor.dev. Prices are not published.
+- **Paid licences:** contact sales@zyvor.dev. Price: ₹2,999 per Mac per year including GST (about US$30). Teams of 5 or more Macs: ₹2,549 per Mac per year, by invoice.
 - Details: [docs/LICENSING.md](docs/LICENSING.md). Licensed under the [Zyvor Production License v1.0](LICENSE): non-production use is free; production use requires a paid commercial licence from Zyvor AI Labs Private Limited. See also [NOTICE](NOTICE).
 
 ## Documentation
