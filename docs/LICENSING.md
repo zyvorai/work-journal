@@ -16,7 +16,7 @@ Write to [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20trial
 
 ## Paid licences
 
-Work Journal is a paid app. For a licence, contact [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20licence). Prices are not published here.
+Work Journal is a paid app. For a licence, contact [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20licence). Price: ₹2,999 per Mac per year including GST (about US$30). Teams of 5 or more Macs: ₹2,549 per Mac per year, by invoice.
 
 ## Terms
 
