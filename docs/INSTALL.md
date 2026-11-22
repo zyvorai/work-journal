@@ -34,7 +34,7 @@ Turn it on under **Settings > General**, or add Work Journal under System Settin
 
 ## 6. Trial key
 
-You do not need a key to use Work Journal: with no key everything works and the status line says so. Free 30-day trial key: [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20trial%20key). Paid licences: contact [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20licence). Enter a key under **Licence…** in the menu. See [Trial and licence](LICENSING.md).
+You do not need a key to use Work Journal: with no key everything works and the status line says so. 30-day trial key: [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20trial%20key). Paid licences: contact [sales@zyvor.dev](mailto:sales@zyvor.dev?subject=Work%20Journal%20licence). Enter a key under **Licence…** in the menu. See [Trial and licence](LICENSING.md).
 
 ## Uninstall
 

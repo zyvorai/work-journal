@@ -23,7 +23,7 @@ Which app was in front, which files changed in the folders you choose, turned in
 | | |
 | --- | --- |
 | **Get it** | [Work Journal 0.1.1](https://github.com/zyvorai/work-journal/releases/tag/v0.1.1): `WorkJournal-0.1.1.dmg` (the SHA-256 is in the release notes and in `WorkJournal-0.1.1.dmg.sha256`) |
-| **Free 30-day trial key** | **sales@zyvor.dev**. Enter it under **Licence…** in the menu-bar menu. You do not need a key to use the app. |
+| **30-day trial key** | **sales@zyvor.dev**. Enter it under **Licence…** in the menu-bar menu. You do not need a key to use the app. |
 | **Requirements** | macOS 27 or later, Apple silicon |
 | **Notarized** | Developer ID signed and notarized by Apple |
 
@@ -67,9 +67,9 @@ lists only `app-sandbox`, `files.user-selected.read-write` and `files.bookmarks.
 
 ## Trial and licence
 
-- **Free 30-day trial key: sales@zyvor.dev.** Without a key everything works and a status line says so. After a trial ends, nothing is disabled either.
-- **Paid licences:** [zyvor.dev/buy](https://zyvor.dev/buy#work-journal). Price: INR 2,999 per Mac per year incl. 18% GST in India (about US$30 excl. tax outside India). Teams of 5 or more Macs: INR 2,549 per Mac per year (about US$26 excl. tax), minimum 5 Macs (INR 12,745, about US$129), by invoice. Prices: INR incl. 18% GST in India; US dollars excl. tax elsewhere (VAT, GST or sales tax added where applicable). Pay online by UPI, card or netbanking; international cards work (charged in rupees). Orders of USD 5,000 or more and quotes are invoiced in USD through Skydo. Custom pricing: contact sales@zyvor.dev. Buy: [zyvor.dev/buy](https://zyvor.dev/buy#work-journal) (free 30-day trial first).
-- Details: [docs/LICENSING.md](docs/LICENSING.md). Licensed under the [Zyvor Production License v1.0](LICENSE): evaluation is free for 30 days per organization; production use requires a paid commercial licence from Zyvor AI Labs Private Limited. See also [NOTICE](NOTICE).
+- **30-day trial key: sales@zyvor.dev.** Without a key everything works and a status line says so. After a trial ends, nothing is disabled either.
+- **Paid licences:** [zyvor.dev/buy](https://zyvor.dev/buy#work-journal). Price: INR 2,999 per Mac per year incl. 18% GST in India (about US$30 excl. tax outside India). Teams of 5 or more Macs: INR 2,549 per Mac per year (about US$26 excl. tax), minimum 5 Macs (INR 12,745, about US$129), by invoice. Prices: INR incl. 18% GST in India; US dollars excl. tax elsewhere (VAT, GST or sales tax added where applicable). Pay online by UPI, card or netbanking; international cards work (charged in rupees). Orders of USD 5,000 or more and quotes are invoiced in USD through Skydo. Custom pricing: contact sales@zyvor.dev. Buy: [zyvor.dev/buy](https://zyvor.dev/buy#work-journal) (30-day trial first).
+- Details: [docs/LICENSING.md](docs/LICENSING.md). Licensed under the [Zyvor Production Licence v2.0](LICENSE). A 30-day trial is available on request from sales@zyvor.dev (a paid evaluation Order at no charge); production and any other use needs a paid Order. See also [NOTICE](NOTICE).
 
 ## Documentation
 
